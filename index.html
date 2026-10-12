@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cove Hair Studio — Wilmington, NC</title>
+  <meta name="description" content="The Cove Hair Studio is Wilmington's premier coastal salon. Book with Tara or Kayla for cuts, color, balayage, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  
+	<style>
+	/* ============================================================
+   THE COVE HAIR STUDIO — styles.css
+   Pure CSS, no frameworks
+   ============================================================ */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --teal:         #1B5E6F;
+  --teal-light:   #24788D;
+  --teal-dark:    #144A58;
+  --sand:         #C9A87C;
+  --sand-light:   #D4BC9A;
+  --shell:        #F9F5F0;
+  --shell-dark:   #F0EAE1;
+  --charcoal:     #2C2C2C;
+  --charcoal-lt:  #4A4A4A;
+  --seafoam:      #8BBCBE;
+  --seafoam-lt:   #A8D0D2;
+  --blush:        #E8C4B8;
+  --rosegold:     #C9918A;
+  --champagne:    #F5E6D3;
+  --white:        #FFFFFF;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Lato', 'Helvetica Neue', Arial, sans-serif;
+
+  --nav-h: 68px;
+  --radius-sm:  6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  --shadow-sm:  0 2px  8px rgba(0,0,0,0.08);
+  --shadow-md:  0 6px 20px rgba(0,0,0,0.10);
+  --shadow-lg:  0 12px 40px rgba(27,94,111,0.15);
+  --shadow-xl:  0 20px 60px rgba(27,94,111,0.18);
+
+  --transition: 0.3s ease;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--shell);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: inherit;
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.82;
+  max-width: 560px;
+}
+
+/* ---------- Utility ---------- */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform var(--transition), box-shadow var(--transition),
+              background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--sand);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(201,168,124,0.35);
+}
+.btn-primary:hover {
+  background: var(--sand-light);
+  box-shadow: 0 8px 24px rgba(201,168,124,0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--teal);
+}
+
+.btn-teal {
+  background: var(--teal);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(27,94,111,0.3);
+}
+.btn-teal:hover {
+  background: var(--teal-light);
+  box-shadow: 0 8px 24px rgba(27,94,111,0.4);
+}
+
+.btn-seafoam {
+  background: var(--seafoam);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(139,188,190,0.35);
+}
+.btn-seafoam:hover {
+  background: var(--seafoam-lt);
+  box-shadow: 0 8px 24px rgba(139,188,190,0.45);
+}
+
+/* ---------- Fade-in Animation ---------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in.delay-1 { transition-delay: 0.1s; }
+.fade-in.delay-2 { transition-delay: 0.2s; }
+.fade-in.delay-3 { transition-delay: 0.3s; }
+.fade-in.delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(27, 94, 111, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.03em;
+}
+.nav-logo span { color: var(--sand); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--sand);
+  transition: width var(--transition);
+}
+.nav-link:hover,
+.nav-link.active { color: var(--white); }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link.active { color: var(--sand); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 40px; height: 40px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+#mobile-menu {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: var(--teal-dark);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+  z-index: 99;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+#mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-nav-link {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: color var(--transition), padding-left var(--transition);
+}
+.mobile-nav-link:hover { color: var(--sand); padding-left: 20px; }
+
+/* ============================================================
+   WAVE DIVIDER
+   ============================================================ */
+.wave-divider {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-divider svg { display: block; width: 100%; }
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: calc(var(--nav-h) + 60px) 24px 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--teal-dark) 0%, var(--teal) 45%,
+              var(--teal-light) 75%, var(--seafoam) 100%);
+}
+#home::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,188,190,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+#home::after {
+  content: '';
+  position: absolute;
+  bottom: 60px; left: -100px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,124,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand-light);
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.hero-title em { font-style: italic; color: var(--sand-light); }
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto 2.4rem;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+}
+.hero-note {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+}
+.hero-wave {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+#about {
+  background: var(--shell);
+  padding: 100px 0 80px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-circle {
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--seafoam) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+  animation: gentleFloat 5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.about-icon { width: 96px; height: 96px; opacity: 0.92; }
+.about-copy h2 { color: var(--teal); margin-bottom: 1.2rem; }
+.about-copy p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--charcoal-lt);
+  margin-bottom: 1.2rem;
+}
+.about-copy p:last-child { margin-bottom: 0; }
+
+.stylists-heading {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--teal);
+  margin-bottom: 40px;
+}
+.stylists-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.stylist-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(27,94,111,0.07);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.stylist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.stylist-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stylist-avatar.tara  { background: linear-gradient(135deg, var(--teal) 0%, var(--seafoam) 100%); }
+.stylist-avatar.kayla { background: linear-gradient(135deg, var(--seafoam) 0%, var(--seafoam-lt) 100%); }
+.stylist-card h3 { font-size: 1.4rem; color: var(--teal); margin-bottom: 4px; }
+.stylist-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 14px;
+}
+.stylist-bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--charcoal-lt);
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   SERVICES SECTION
+   ============================================================ */
+#services {
+  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 60%,
+              var(--teal-light) 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+#services::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,188,190,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.services-header {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 60px;
+}
+.services-header .section-heading { color: var(--white); }
+.services-header .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto; }
+.services-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+.service-panel {
+  background: rgba(255,255,255,0.96);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.service-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+}
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--shell-dark);
+}
+.panel-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.panel-icon.teal { background: var(--teal); }
+.panel-icon.foam { background: var(--seafoam); }
+.panel-header h3 { font-size: 1.35rem; color: var(--teal); }
+.service-list { margin-bottom: 28px; }
+.service-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 0.97rem;
+  color: var(--charcoal);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.service-list li:last-child { border-bottom: none; }
+.check-icon {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.check-icon.teal { background: var(--teal); }
+.check-icon.foam { background: var(--seafoam); }
+.services-callout {
+  text-align: center;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.97rem;
+  font-style: italic;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-md);
+  padding: 20px 32px;
+  max-width: 580px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+}
+
+/* ============================================================
+   PORTFOLIO SECTION
+   ============================================================ */
+#portfolio {
+  background: var(--shell);
+  padding: 100px 0;
+}
+.portfolio-header { text-align: center; margin-bottom: 56px; }
+.portfolio-header .section-heading { color: var(--teal); }
+.portfolio-header .section-sub { margin: 0 auto; color: var(--charcoal-lt); }
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.portfolio-tile {
+  border-radius: var(--radius-md);
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.portfolio-tile:hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-xl);
+  z-index: 1;
+}
+.tile-gradient { position: absolute; inset: 0; }
+.tile-1 .tile-gradient { background: linear-gradient(135deg, var(--teal) 0%, #C9A87C 100%); }
+.tile-2 .tile-gradient { background: linear-gradient(135deg, var(--seafoam) 0%, #dff0f1 100%); }
+.tile-3 .tile-gradient { background: linear-gradient(135deg, var(--sand) 0%, var(--champagne) 100%); }
+.tile-4 .tile-gradient { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--seafoam) 100%); }
+.tile-5 .tile-gradient { background: linear-gradient(135deg, var(--rosegold) 0%, var(--blush) 100%); }
+.tile-6 .tile-gradient { background: linear-gradient(135deg, #1a3a6e 0%, var(--teal-light) 100%); }
+.tile-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 36px 18px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.portfolio-ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.05em;
+  transition: color var(--transition), gap var(--transition);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.social-link:hover {
+  color: var(--teal-light);
+  gap: 12px;
+  border-color: var(--sand);
+}
+.social-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+.divider-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--sand);
+}
+
+/* ============================================================
+   CONTACT & HOURS SECTION
+   ============================================================ */
+#contact {
+  background: var(--shell-dark);
+  padding: 100px 0;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+.contact-info {
+  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 100%);
+  color: var(--white);
+  padding: 56px 48px;
+}
+.contact-info h2 { color: var(--white); margin-bottom: 36px; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.contact-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.contact-icon svg { width: 18px; height: 18px; color: var(--sand-light); }
+.contact-item-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sand-light);
+  margin-bottom: 2px;
+}
+.contact-item-value {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+.contact-item-value a {
+  color: rgba(255,255,255,0.9);
+  transition: color var(--transition);
+}
+.contact-item-value a:hover { color: var(--sand-light); }
+.map-placeholder {
+  margin-top: 32px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  transition: background var(--transition);
+}
+.map-placeholder:hover { background: rgba(255,255,255,0.13); }
+.map-pin-icon { width: 28px; height: 28px; color: var(--sand-light); flex-shrink: 0; }
+.contact-hours {
+  background: var(--white);
+  padding: 56px 48px;
+}
+.contact-hours h2 { color: var(--teal); margin-bottom: 32px; }
+.hours-table { width: 100%; margin-bottom: 40px; }
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.hours-row:hover { background: rgba(27,94,111,0.04); }
+.hours-row.open {
+  border-left: 3px solid var(--teal);
+  padding-left: 11px;
+}
+.hours-row.closed { opacity: 0.42; }
+.hours-day { font-weight: 700; font-size: 0.95rem; color: var(--charcoal); }
+.hours-time { font-size: 0.9rem; color: var(--charcoal-lt); text-align: right; }
+.hours-row.open .hours-time { color: var(--teal); font-weight: 700; }
+.booking-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  background: var(--teal-dark);
+  color: var(--white);
+  padding: 60px 0 36px;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.footer-logo span { color: var(--sand); }
+.footer-tagline {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+}
+.footer-nav a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+}
+.footer-nav a:hover { color: var(--sand); }
+.footer-socials { display: flex; gap: 16px; justify-content: center; }
+.footer-social-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background var(--transition), border-color var(--transition),
+              transform var(--transition);
+}
+.footer-social-btn:hover {
+  background: var(--sand);
+  border-color: var(--sand);
+  transform: translateY(-2px);
+}
+.footer-social-btn svg { width: 18px; height: 18px; color: var(--white); }
+.footer-divider {
+  width: 60px; height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .about-grid      { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual    { order: -1; }
+  .about-circle    { width: 220px; height: 220px; }
+  .about-icon      { width: 72px; height: 72px; }
+  .stylists-grid   { grid-template-columns: 1fr; }
+  .services-panels { grid-template-columns: 1fr; gap: 20px; }
+  .portfolio-grid  { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid    { grid-template-columns: 1fr; border-radius: var(--radius-lg); }
+  .nav-links       { display: none; }
+  .hamburger       { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .container       { padding: 0 16px; }
+  #home            { padding-top: calc(var(--nav-h) + 40px); }
+  .hero-title      { font-size: 2.4rem; }
+  .hero-ctas       { flex-direction: column; align-items: center; }
+  .portfolio-grid  { grid-template-columns: 1fr; }
+  .contact-info,
+  .contact-hours   { padding: 40px 28px; }
+  .portfolio-ctas  { flex-direction: column; align-items: center; text-align: center; }
+  .divider-dot     { display: none; }
+}
+
+	</style> 
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo">The <span>Cove</span></a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#home"      class="nav-link" data-nav="home">Home</a></li>
+        <li><a href="#about"     class="nav-link" data-nav="about">About</a></li>
+        <li><a href="#services"  class="nav-link" data-nav="services">Services</a></li>
+        <li><a href="#portfolio" class="nav-link" data-nav="portfolio">Portfolio</a></li>
+        <li><a href="#contact"   class="nav-link" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" aria-hidden="true">
+    <a href="#home"      class="mobile-nav-link">Home</a>
+    <a href="#about"     class="mobile-nav-link">About</a>
+    <a href="#services"  class="mobile-nav-link">Services</a>
+    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="#contact"   class="mobile-nav-link">Contact</a>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section id="home">
+    <p class="hero-eyebrow fade-in">Wilmington, NC · Est. 2024</p>
+    <h1 class="hero-title fade-in delay-1">Where Style<br><em>Meets the Shore.</em></h1>
+    <p class="hero-sub fade-in delay-2">
+      Wilmington's premier destination for transformative hair experiences —
+      crafted with coastal calm and coastal artistry.
+    </p>
+    <div class="hero-ctas fade-in delay-3">
+      <a href="https://taragernon.glossgenius.com/services"
+         class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <!-- Scissors SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+          <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+          <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+          <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+        </svg>
+        Book with Tara
+      </a>
+      <a href="https://hairbykaylaclements.glossgenius.com/services"
+         class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+          <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+          <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+          <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+        </svg>
+        Book with Kayla
+      </a>
+    </div>
+    <p class="hero-note fade-in delay-4">Tuesday – Saturday &nbsp;·&nbsp; 1329 Independence Blvd, Wilmington NC</p>
+
+    <!-- Wave bottom divider -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#F9F5F0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section id="about">
+    <div class="container">
+
+      <!-- Story -->
+      <div class="about-grid">
+        <div class="about-visual fade-in">
+          <div class="about-circle">
+            <!-- Scissors + wave icon -->
+            <svg class="about-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
+                 fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="12"/>
+              <circle cx="30" cy="66" r="12"/>
+              <line x1="78" y1="18" x2="39" y2="57"/>
+              <line x1="59" y1="57" x2="78" y2="78"/>
+              <line x1="39" y1="39" x2="50" y2="50"/>
+              <!-- Wave accent -->
+              <path d="M52 82 Q62 74 72 82 Q82 90 92 82" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="about-copy fade-in delay-2">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-heading">A Retreat by the Carolina Coast</h2>
+          <p>
+            Tucked away in the heart of Wilmington, The Cove Hair Studio is more than a salon —
+            it's a retreat. Named for the quiet beauty of the Carolina coast, our studio was born
+            from a shared love of craft, community, and making every client feel genuinely seen.
+          </p>
+          <p>
+            We are Tara and Kayla, two stylists who believe that great hair is deeply personal.
+            Whether you're looking for a bold transformation or a subtle refresh, we take the time
+            to listen, consult, and create looks that feel authentically you.
+          </p>
+          <p>
+            At The Cove, you'll find a calm, welcoming atmosphere where artistry and connection
+            come together. Come as you are — leave feeling like the best version of yourself.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stylist Cards -->
+      <h3 class="stylists-heading fade-in">Meet Your Stylists</h3>
+      <div class="stylists-grid">
+
+        <!-- Tara -->
+        <div class="stylist-card fade-in delay-1">
+          <div class="stylist-avatar tara">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                 fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Tara Gernon</h3>
+          <p class="stylist-title">Master Stylist &amp; Co-Owner</p>
+          <p class="stylist-bio">
+            With years of experience in color artistry and precision cuts, Tara brings a meticulous
+            eye and a warm chair-side manner to every appointment. Her passion for lived-in,
+            dimensional color keeps clients coming back season after season.
+          </p>
+          <a href="https://taragernon.glossgenius.com/services"
+             class="btn btn-teal" target="_blank" rel="noopener noreferrer">Book with Tara</a>
+        </div>
+
+        <!-- Kayla -->
+        <div class="stylist-card fade-in delay-2">
+          <div class="stylist-avatar kayla">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                 fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Kayla Clements</h3>
+          <p class="stylist-title">Stylist &amp; Co-Owner</p>
+          <p class="stylist-bio">
+            Kayla's passion for lived-in color, textured styling, and building lasting client
+            relationships makes every visit feel like catching up with a friend. She specializes
+            in blonding and effortlessly natural-looking results.
+          </p>
+          <a href="https://hairbykaylaclements.glossgenius.com/services"
+             class="btn btn-seafoam" target="_blank" rel="noopener noreferrer">Book with Kayla</a>
+        </div>
+
+      </div><!-- /stylists-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="background:#F9F5F0;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,20 1440,30 L1440,60 L0,60 Z"
+            fill="#144A58"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       SERVICES SECTION
+       ============================================================ -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header fade-in">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-heading">Two Talented Stylists.<br>One Beautiful Studio.</h2>
+        <p class="section-sub">
+          From precision cuts to transformative color, every service is tailored to you.
+        </p>
+      </div>
+
+      <div class="services-panels">
+
+        <!-- Tara's Services -->
+        <div class="service-panel fade-in delay-1">
+          <div class="panel-header">
+            <div class="panel-icon teal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                   fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3>Tara's Services</h3>
+          </div>
+          <ul class="service-list">
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Precision Haircuts
+            </li>
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Custom Color &amp; Highlights
+            </li>
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Balayage &amp; Ombré
+            </li>
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Color Correction
+            </li>
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Keratin Treatments
+            </li>
+            <li>
+              <span class="check-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Bang Trims
+            </li>
+          </ul>
+          <a href="https://taragernon.glossgenius.com/services"
+             class="btn btn-teal" target="_blank" rel="noopener noreferrer">View Full Menu &amp; Book</a>
+        </div>
+
+        <!-- Kayla's Services -->
+        <div class="service-panel fade-in delay-2">
+          <div class="panel-header">
+            <div class="panel-icon foam">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                   fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3>Kayla's Services</h3>
+          </div>
+          <ul class="service-list">
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Haircuts &amp; Trims
+            </li>
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Lived-In Color
+            </li>
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Blonding &amp; Lightening
+            </li>
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Textured Styling
+            </li>
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Special Occasion Styling
+            </li>
+            <li>
+              <span class="check-icon foam">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Treatments &amp; Gloss
+            </li>
+          </ul>
+          <a href="https://hairbykaylaclements.glossgenius.com/services"
+             class="btn btn-seafoam" target="_blank" rel="noopener noreferrer">View Full Menu &amp; Book</a>
+        </div>
+
+      </div><!-- /services-panels -->
+
+      <p class="services-callout fade-in">
+        Not sure where to start? Both stylists offer complimentary consultations —
+        just reach out before booking.
+      </p>
+    </div>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="background:#144A58;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,20 C360,60 720,0 1080,40 C1260,58 1380,10 1440,20 L1440,60 L0,60 Z"
+            fill="#F9F5F0"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       PORTFOLIO SECTION
+       ============================================================ -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="portfolio-header fade-in">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-heading">Every Look, a Collaboration</h2>
+        <p class="section-sub">
+          A glimpse into the styles, colors, and transformations we love creating for our clients.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-tile tile-1 fade-in delay-1">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Balayage &amp; Lived-In Color</div>
+        </div>
+        <div class="portfolio-tile tile-2 fade-in delay-2">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Precision Cuts</div>
+        </div>
+        <div class="portfolio-tile tile-3 fade-in delay-3">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Blonding &amp; Highlights</div>
+        </div>
+        <div class="portfolio-tile tile-4 fade-in delay-1">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Color Correction</div>
+        </div>
+        <div class="portfolio-tile tile-5 fade-in delay-2">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Special Occasion</div>
+        </div>
+        <div class="portfolio-tile tile-6 fade-in delay-3">
+          <div class="tile-gradient"></div>
+          <div class="tile-label">Texture &amp; Waves</div>
+        </div>
+      </div>
+
+      <div class="portfolio-ctas fade-in">
+        <!-- Instagram icon SVG -->
+        <a href="https://www.instagram.com/thecove_hairstudio"
+           class="social-link" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          Follow @thecove_hairstudio
+        </a>
+
+        <div class="divider-dot"></div>
+
+        <!-- Google star icon -->
+        <a href="https://share.google/quwwCGOEKGpQ9YGhc"
+           class="social-link" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Leave a Google Review
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" style="background:#F9F5F0;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#F0EAE1"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       CONTACT & HOURS SECTION
+       ============================================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid fade-in">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <span class="section-label">Find Us</span>
+          <h2 class="section-heading">Come Visit The Cove</h2>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <!-- Map pin -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="contact-item-body">
+              <p class="contact-item-label">Address</p>
+              <p class="contact-item-value">
+                1329 Independence Blvd Suite 26<br>Wilmington, NC 28403
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <!-- Phone -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.85 3.4 2 2 0 0 1 3.84 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="contact-item-body">
+              <p class="contact-item-label">Phone</p>
+              <p class="contact-item-value">
+                <a href="tel:+19103985670">(910) 398-5670</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <!-- Mail -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-item-body">
+              <p class="contact-item-label">Email</p>
+              <p class="contact-item-value">
+                <a href="mailto:hello@thecovehairstudio.com">hello@thecovehairstudio.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <!-- Instagram -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4.5"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <div class="contact-item-body">
+              <p class="contact-item-label">Instagram</p>
+              <p class="contact-item-value">
+                <a href="https://www.instagram.com/thecove_hairstudio"
+                   target="_blank" rel="noopener noreferrer">@thecove_hairstudio</a>
+              </p>
+            </div>
+          </div>
+
+          <a href="https://share.google/quwwCGOEKGpQ9YGhc"
+             class="map-placeholder" target="_blank" rel="noopener noreferrer">
+            <svg class="map-pin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>View us on Google Maps &amp; leave a review →</span>
+          </a>
+        </div>
+
+        <!-- Right: Hours + Booking -->
+        <div class="contact-hours">
+          <span class="section-label">Studio Hours</span>
+          <h2 class="section-heading">When To Visit</h2>
+
+          <div class="hours-table">
+            <div class="hours-row closed">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">Closed</span>
+            </div>
+            <div class="hours-row closed">
+              <span class="hours-day">Monday</span>
+              <span class="hours-time">Closed</span>
+            </div>
+            <div class="hours-row open">
+              <span class="hours-day">Tuesday</span>
+              <span class="hours-time">10AM – 6PM</span>
+            </div>
+            <div class="hours-row open">
+              <span class="hours-day">Wednesday</span>
+              <span class="hours-time">10AM – 6PM</span>
+            </div>
+            <div class="hours-row open">
+              <span class="hours-day">Thursday</span>
+              <span class="hours-time">10AM – 7PM</span>
+            </div>
+            <div class="hours-row open">
+              <span class="hours-day">Friday</span>
+              <span class="hours-time">10AM – 6PM</span>
+            </div>
+            <div class="hours-row open">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">10AM – 3PM</span>
+            </div>
+          </div>
+
+          <div class="booking-stack">
+            <a href="https://taragernon.glossgenius.com/services"
+               class="btn btn-teal" target="_blank" rel="noopener noreferrer">
+              Book with Tara
+            </a>
+            <a href="https://hairbykaylaclements.glossgenius.com/services"
+               class="btn btn-seafoam" target="_blank" rel="noopener noreferrer">
+              Book with Kayla
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div>
+          <p class="footer-logo">The <span>Cove</span> Hair Studio</p>
+          <p class="footer-tagline">Where Style Meets the Shore &nbsp;·&nbsp; Wilmington, NC</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/thecove_hairstudio"
+             class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://share.google/quwwCGOEKGpQ9YGhc"
+             class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Google">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2025 The Cove Hair Studio. All rights reserved. Crafted with care in Wilmington, NC.</p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
