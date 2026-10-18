@@ -464,7 +464,7 @@ h1, h2, h3, h4 {
   justify-content: center;
 }
 .stylist-avatar.tara  { background: linear-gradient(135deg, var(--teal) 0%, var(--seafoam) 100%); }
-.stylist-avatar.kayla { background: linear-gradient(135deg, var(--seafoam) 0%, var(--seafoam-lt) 100%); }
+.stylist-avatar.kayla { background: linear-gradient(45deg, var(--seafoam) 0%, var(--teal) 100%); }
 .stylist-card h3 { font-size: 1.4rem; color: var(--teal); margin-bottom: 4px; }
 .stylist-title {
   font-size: 0.8rem;
